@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,7 +32,6 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/profile"
             android:scaleType="centerCrop"
             android:layout_gravity="center" />
 
@@ -63,7 +62,6 @@
             android:text="About Us"
             android:textSize="16sp"
             android:layout_marginTop="16dp" />
-
     </LinearLayout>
 
     <!-- Main content layout -->
@@ -86,7 +84,7 @@
             <RelativeLayout
                 android:layout_width="432dp"
                 android:layout_height="wrap_content"
-                android:background=""
+                android:background="@color/black"
                 android:outlineAmbientShadowColor="#000000"
                 android:padding="10dp">
 
@@ -155,7 +153,6 @@
                         android:background="@android:color/transparent"
                         android:onClick="nextPage"
                         android:src="@drawable/arrow_right" />
-
                 </FrameLayout>
             </RelativeLayout>
 
@@ -193,7 +190,7 @@
                             android:layout_width="152dp"
                             android:layout_height="147dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/Yoasobi_The_Book1" />
+                            android:src="@drawable/yoasobi1" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -224,7 +221,7 @@
                             android:layout_width="152dp"
                             android:layout_height="147dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/Yoasobi_The_Book2" />
+                            android:src="@drawable/yoasobi2" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -255,7 +252,7 @@
                             android:layout_width="152dp"
                             android:layout_height="147dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/Yoasobi_The_Book3" />
+                            android:src="@drawable/yoasobi3" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -407,7 +404,7 @@
                             android:layout_width="124dp"
                             android:layout_height="124dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/Artist1" />
+                            android:src="@drawable/artist1" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -429,7 +426,7 @@
                             android:layout_width="124dp"
                             android:layout_height="124dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/Artist2" />
+                            android:src="@drawable/artist2" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -451,7 +448,7 @@
                             android:layout_width="124dp"
                             android:layout_height="124dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/Artist3" />
+                            android:src="@drawable/artist3" />
 
                         <TextView
                             android:layout_width="wrap_content"
