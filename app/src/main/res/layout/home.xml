@@ -5,21 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
-    tools:context=".ImageSlider">
+    android:background="@drawable/login_background">
 
+    <!-- Sidebar layout -->
     <!-- Sidebar layout -->
     <LinearLayout
         android:id="@+id/sidebar"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#FFFFFF"
+        android:background="#333333"
         android:padding="16dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="10dp">
 
         <ImageView
             android:id="@+id/closeBtn"
@@ -33,13 +34,16 @@
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@drawable/artist1"/>
 
         <TextView
+            android:id="@+id/username_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="DefUsername"
             android:textSize="18sp"
+            android:textColor="#FFFFFF"
             android:layout_gravity="center"
             android:layout_marginTop="8dp" />
 
@@ -49,19 +53,73 @@
             android:layout_marginTop="16dp"
             android:background="#DDDDDD" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All Items"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
 
-        <TextView
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Items"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About Us"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_info_details"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About Us"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_lock_power_off"
+                app:tint="#FF0000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textSize="16sp"
+                android:textColor="#FF0000"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Main content layout -->

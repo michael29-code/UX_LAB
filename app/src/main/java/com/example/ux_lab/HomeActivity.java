@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     private Runnable runnable;
     private int delay = 3000; // 3000 milliseconds delay
     private TextView welcomeTextView; // TextView for displaying the welcome message
+    private TextView sidebarUsernameTextView; // TextView for displaying the username in the sidebar
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,13 @@ public class HomeActivity extends AppCompatActivity {
         closeBtn = findViewById(R.id.closeBtn);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
         welcomeTextView = findViewById(R.id.welcome_message); // Make sure this TextView exists in your layout
+        sidebarUsernameTextView = findViewById(R.id.username_textview); // TextView in the sidebar
 
         // Retrieve the username from the Intent
         String username = getIntent().getStringExtra("USERNAME");
         if (username != null) {
             welcomeTextView.setText("Welcome, " + username); // Set the welcome message
+            sidebarUsernameTextView.setText(username); // Set the username in the sidebar
         }
 
         // Set onClick listeners
