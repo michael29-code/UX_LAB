@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
     private LinearLayout sidebar;
-    private ImageView closeBtn, hamburgerMenu;
+    private ImageView closeBtn, hamburgerMenu, imageSong;
     private ViewPager viewPager;
     private int[] images = {R.drawable.jumbotron1, R.drawable.jumbotron2, R.drawable.jumbotron3};
     private Handler handler = new Handler();
@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
         welcomeTextView = findViewById(R.id.welcome_message); // Make sure this TextView exists in your layout
         sidebarUsernameTextView = findViewById(R.id.username_textview); // TextView in the sidebar
+        imageSong = findViewById(R.id.songsId);
 
         // Retrieve the username from the Intent
         String username = getIntent().getStringExtra("USERNAME");
@@ -48,7 +49,14 @@ public class HomeActivity extends AppCompatActivity {
                 toggleSidebar();
             }
         });
-
+        imageSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ItemDetailActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         hamburgerMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
