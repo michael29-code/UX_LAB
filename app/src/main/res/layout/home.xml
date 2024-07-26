@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
-    tools:context=".Home">
+    tools:context=".ImageSlider">
 
     <!-- Sidebar layout -->
     <LinearLayout
@@ -109,51 +109,52 @@
                 android:textColor="#FFFFFF"
                 android:textSize="28sp" />
 
-            <!-- Carousel untuk Gambar Jumbotron -->
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
+            <!-- Carousel for Jumbotron -->
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="12dp"
-                tools:context=".Home">
+                android:layout_height="250dp"
+                android:layout_marginTop="12dp">
 
-                <!-- FrameLayout untuk mengatur z-order -->
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="330dp"
+                    android:layout_height="201dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="40dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="10dp">
 
-                    <!-- AREA CAROUSEL -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="310dp"
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:layout_gravity="center"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardElevation="20dp">
-                        <!-- Tambahkan ViewPager atau konten lain di sini -->
-                    </androidx.cardview.widget.CardView>
+                        android:id="@+id/imageSlider"
+                        app:iss_period="1000"
+                        app:iss_auto_cycle="true"
+                        app:iss_delay="1000">
+                    </com.denzcoskun.imageslider.ImageSlider>
 
-                    <!-- Tombol Kiri -->
-                    <ImageButton
-                        android:id="@+id/buttonLeft"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center_vertical|start"
-                        android:background="@android:color/transparent"
-                        android:onClick="previousPage"
-                        android:src="@drawable/arrow_left" />
+                </androidx.cardview.widget.CardView>
 
-                    <!-- Tombol Kanan -->
-                    <ImageButton
-                        android:id="@+id/buttonRight"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center_vertical|end"
-                        android:background="@android:color/transparent"
-                        android:onClick="nextPage"
-                        android:src="@drawable/arrow_right" />
-                </FrameLayout>
+                <!-- Buttons for Navigation -->
+                <ImageButton
+                    android:id="@+id/buttonLeft"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="previousPage"
+                    android:src="@drawable/arrow_left" />
+
+                <ImageButton
+                    android:id="@+id/buttonRight"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="nextPage"
+                    android:src="@drawable/arrow_right" />
             </RelativeLayout>
 
 
