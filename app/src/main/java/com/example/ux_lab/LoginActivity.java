@@ -20,8 +20,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin;
     private TextView textViewError;
 
-    public static String username; // Global variable to store username
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +45,10 @@ public class LoginActivity extends AppCompatActivity {
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            username = editTextUsername.getText().toString();
+                            String username = editTextUsername.getText().toString();
                             // Redirect to Home module (assume you have a HomeActivity)
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            intent.putExtra("USERNAME", username); // Pass the username
                             startActivity(intent);
                             finish(); // Close the login activity
                         }
