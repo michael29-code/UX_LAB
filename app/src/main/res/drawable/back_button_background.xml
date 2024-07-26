@@ -1,0 +1,13 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#80000000"/> <!-- Semi-transparent black background -->
+            <size
+                android:width="48dp"
+                android:height="48dp"/>
+            <corners android:radius="24dp"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/is_back_arrow"
+        android:gravity="center"/>
+</layer-list>
