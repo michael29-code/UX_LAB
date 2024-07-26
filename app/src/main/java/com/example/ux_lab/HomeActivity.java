@@ -2,6 +2,8 @@ package com.example.ux_lab;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -84,6 +86,27 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             sidebar.setVisibility(View.GONE);
         }
+    }
+
+    private void setupSidebarNavigation() {
+        findViewById(R.id.all_items).setOnClickListener(v -> {
+            // Navigate to ItemDetailActivity
+            Intent intent = new Intent(HomeActivity.this, ItemDetailActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.about_us).setOnClickListener(v -> {
+            // Navigate to AboutUsActivity
+            Intent intent = new Intent(HomeActivity.this, AboutUsActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.logout).setOnClickListener(v -> {
+            // Navigate to LoginActivity
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish(); // Optionally finish the current activity
+        });
     }
 
     public void previousPage(View view) {
