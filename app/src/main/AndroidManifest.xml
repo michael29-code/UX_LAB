@@ -36,6 +36,12 @@
             </intent-filter>
         </activity>
 
+        <!-- Add HomeActivity here -->
+        <activity
+            android:name=".ItemDetailActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
