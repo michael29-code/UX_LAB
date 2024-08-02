@@ -27,13 +27,15 @@
 
         <!-- Add LoginActivity here -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".ProductListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ProductDetailActivity"></activity>
 
 
         <!-- Add HomeActivity here -->
@@ -48,9 +50,11 @@
         </activity>
 
         <!-- Add contact us here -->
-        <activity android:name=".ContactUsActivity"></activity>
+        <activity
+            android:name=".ContactUsActivity"
+            android:exported="true">
+        </activity>
         <!-- Add about us here -->
-        <activity android:name=".AboutUsActivity"></activity>
 
     </application>
 

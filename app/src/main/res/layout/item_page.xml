@@ -59,12 +59,16 @@
 
             <!-- Album 1 -->
             <LinearLayout
+                android:id="@+id/album1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
+                    android:id="@+id/albumImage1"
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
@@ -77,6 +81,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/albumName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
@@ -85,6 +90,7 @@
                         android:textSize="23sp" />
 
                     <TextView
+                        android:id="@+id/artistName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Artist 1"
@@ -122,12 +128,16 @@
 
             <!-- Album 2 -->
             <LinearLayout
+                android:id="@+id/album2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
+                    android:id="@+id/albumImage2"
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
@@ -140,6 +150,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/albumName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
@@ -148,6 +159,7 @@
                         android:textSize="23sp" />
 
                     <TextView
+                        android:id="@+id/artistName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Artist 2"
@@ -160,7 +172,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/description1"
+                            android:id="@+id/description2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -171,7 +183,7 @@
                             android:textSize="13sp" />
 
                         <TextView
-                            android:id="@+id/viewMore1"
+                            android:id="@+id/viewMore2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="toggleDescription"
@@ -184,12 +196,16 @@
 
             <!-- Album 3 -->
             <LinearLayout
+                android:id="@+id/album3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
+                    android:id="@+id/albumImage3"
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
@@ -202,6 +218,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/albumName3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
@@ -210,6 +227,7 @@
                         android:textSize="23sp" />
 
                     <TextView
+                        android:id="@+id/artistName3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Artist 3"
@@ -222,7 +240,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/description1"
+                            android:id="@+id/description3"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -233,7 +251,7 @@
                             android:textSize="13sp" />
 
                         <TextView
-                            android:id="@+id/viewMore1"
+                            android:id="@+id/viewMore3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="toggleDescription"

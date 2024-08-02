@@ -80,11 +80,11 @@
                 android:id="@+id/album_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:text="THE BOOK adalah album mini atau extended play (EP) debut serta rilis fisik pertama yang direkam oleh Yoasobi. Album mini ini dirilis pada tanggal 6 Januari 2021 melalui Sony Music Entertainment Japan, bertepatan dengan rilis singel ketujuh mereka yang berjudul 'Kaibutsu'. 'Encore' digunakan sebagai singel promosi dari album ini."
                 android:textColor="#CCCCCC"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp" />
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
