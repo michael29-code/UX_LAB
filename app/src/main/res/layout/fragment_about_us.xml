@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/login_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="viewStart"
+            android:textColor="#ffffff" />
+
+        <!-- Image with Border -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="166dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/about_us" />
+        </FrameLayout>
+
+        <!-- Text Sections -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What is WR Music"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WR Music is a pioneering digital platform dedicated to selling music albums. We offer a diverse catalog of albums from various genres and artists, providing music lovers with easy access to their favorite songs and albums in digital format. Our platform is designed to be user-friendly, ensuring that purchasing and downloading music is a seamless and enjoyable experience."
+            android:textColor="#ffffff"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Our Journey"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Founded in 2020, WR Music began with a small but passionate team of music enthusiasts. Our journey started with the vision of transforming how people buy and listen to music. From humble beginnings, we have grown into a trusted name in the digital music industry. Over the years, we've partnered with numerous artists and record labels, expanding our library and enhancing our platform's features to better serve our customers."
+            android:textColor="#ffffff"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Our Purpose"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="At WR Music, our purpose is to enrich the lives of music lovers by making high-quality music accessible to everyone. We are committed to supporting artists and the music industry by providing a fair and innovative platform for album sales. Our mission is to connect artists with their fans, foster a vibrant music community, and celebrate the universal language of music."
+            android:textColor="#ffffff"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:justificationMode="inter_word"/>
+    </LinearLayout>
+</ScrollView>

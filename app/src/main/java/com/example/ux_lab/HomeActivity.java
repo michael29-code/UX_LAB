@@ -7,20 +7,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 public class HomeActivity extends AppCompatActivity {
     private LinearLayout sidebar;
     private ImageView closeBtn, hamburgerMenu, imageSong;
-    private ViewPager viewPager;
-    private int[] images = {R.drawable.jumbotron1, R.drawable.jumbotron2, R.drawable.jumbotron3};
     private Handler handler = new Handler();
     private Runnable runnable;
-    private int delay = 3000; // 3000 milliseconds delay
     private TextView welcomeTextView; // TextView for displaying the welcome message
     private TextView sidebarUsernameTextView; // TextView for displaying the username in the sidebar
+    private ViewFlipper carousel;
+    private ViewPager viewPager;
+    private int[] images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         welcomeTextView = findViewById(R.id.welcome_message); // Make sure this TextView exists in your layout
         sidebarUsernameTextView = findViewById(R.id.username_textview); // TextView in the sidebar
         imageSong = findViewById(R.id.songsId);
+        carousel = findViewById(R.id.carousel);
 
         // Retrieve the username from the Intent
         String username = getIntent().getStringExtra("USERNAME");
@@ -64,28 +67,44 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        // Initialize ViewPager
-        viewPager = findViewById(R.id.viewPager);
-        ImagePagerAdapter adapter = new ImagePagerAdapter(this, images);
-        viewPager.setAdapter(adapter);
+        ImageButton buttonLeft = findViewById(R.id.buttonLeft);
+        ImageButton buttonRight = findViewById(R.id.buttonRight);
 
-        // Setup automatic sliding
-        runnable = new Runnable() {
+        buttonLeft.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                int currentItem = viewPager.getCurrentItem();
-                int nextItem = currentItem == images.length - 1 ? 0 : currentItem + 1;
-                viewPager.setCurrentItem(nextItem, true);
-                handler.postDelayed(this, delay);
+            public void onClick(View v) {
+                previousPage(v);
             }
-        };
-        handler.postDelayed(runnable, delay);
-    }
+        });
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        handler.removeCallbacks(runnable); // Stop the automatic sliding when the activity is destroyed
+        buttonRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextPage(v);
+            }
+        });
+
+        // Initialize Carousel
+        images = new int[] {
+                R.drawable.jumbotron1,
+                R.drawable.jumbotron2,
+                R.drawable.jumbotron3
+        };
+
+        for (int image : images) {
+            ImageView imageView = new ImageView(this);
+            imageView.setBackgroundResource(image);
+            carousel.addView(imageView);
+        }
+
+        carousel.setFlipInterval(3000); // 5 seconds
+        carousel.setAutoStart(true);
+        carousel.setInAnimation(this, R.anim.slide_out_left);
+        carousel.setOutAnimation(this, R.anim.slide_in_right);
+
+
+        // Setup sidebar navigation
+        setupSidebarNavigation();
     }
 
     private void toggleSidebar() {
@@ -105,7 +124,7 @@ public class HomeActivity extends AppCompatActivity {
 
         findViewById(R.id.about_us).setOnClickListener(v -> {
             // Navigate to AboutUsActivity
-            Intent intent = new Intent(HomeActivity.this, AboutUsActivity.class);
+            Intent intent = new Intent(HomeActivity.this, AboutUsFragment.class);
             startActivity(intent);
         });
 
@@ -118,16 +137,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void previousPage(View view) {
-        int currentItem = viewPager.getCurrentItem();
-        if (currentItem > 0) {
-            viewPager.setCurrentItem(currentItem - 1);
-        }
+        carousel.showPrevious();
     }
 
     public void nextPage(View view) {
-        int currentItem = viewPager.getCurrentItem();
-        if (currentItem < images.length - 1) {
-            viewPager.setCurrentItem(currentItem + 1);
-        }
+        carousel.showNext();
     }
 }

@@ -27,7 +27,7 @@
 
         <!-- Add LoginActivity here -->
         <activity
-            android:name=".ProductListActivity"
+            android:name=".TabLayoutActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -185,11 +185,10 @@
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="10dp">
 
-                    <androidx.viewpager.widget.ViewPager
+                    <ViewFlipper
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:id="@+id/viewPager">
-                    </androidx.viewpager.widget.ViewPager>
+                        android:id="@+id/carousel"/>
 
                 </androidx.cardview.widget.CardView>
 

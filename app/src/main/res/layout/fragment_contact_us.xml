@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/login_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical">
+
+        <!-- Page Title and Description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact our team to\nfind out more"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:gravity="start"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Let us share our expertise and how we can help you reach further"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:gravity="start"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Centered Image -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="166dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/about_us" />
+        </FrameLayout>
+
+        <!-- Office Information -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our Office"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WR Music Headquarters\nJl. Melodi Indah No. 123\nKecamatan Harmoni, Kota Nada, 56789\nIndonesia"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+62 21 1234 5678"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="support@wrmusic.com"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Office Hours -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our Office Hours"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Monday - Friday -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Monday - Fridays:"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Monday - Friday Hours -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8:00AM - 6:00PM"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Saturday -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Saturday:"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Saturday Hours -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10:00AM - 4:00PM"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>
