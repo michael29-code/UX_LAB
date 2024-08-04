@@ -3,6 +3,7 @@ package com.example.ux_lab;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,8 +13,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
 public class HomeActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private ProductAdapter2 productAdapter;
+    private List<Product> productList;
     private LinearLayout sidebar;
     private ImageView closeBtn, hamburgerMenu, imageSong;
     private Handler handler = new Handler();
@@ -24,10 +31,26 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private int[] images;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
+        // Initialize the RecyclerView
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+
+
+        // Initialize product list
+        productList = new ArrayList<>();
+        productList.add(new Product("THE BOOK 1", "Yoasobi", "THE BOOK adalah album mini atau extended play (EP) debut serta rilis fisik pertama yang direkam oleh Yoasobi. Album mini ini dirilis pada tanggal 6 Januari 2021 melalui Sony Music Entertainment Japan, bertepatan dengan rilis singel ketujuh mereka yang berjudul 'Kaibutsu'. 'Encore' digunakan sebagai singel promosi dari album ini", R.drawable.yoasobi1, "2022"));
+        productList.add(new Product("THE BOOK 2", "Yoasobi", "The Book 2 adalah EP kedua dalam bahasa Jepang (ketiga secara keseluruhan) oleh duo Jepang Yoasobi. Album ini dirilis pada tanggal 1 Desember 2021, melalui Sony Music Entertainment Japan, sebelas bulan setelah EP debut mereka, The Book (2021). EP ini terdiri dari delapan lagu, termasuk semua singel mereka yang dirilis pada tahun 2021, serta menampilkan lagu baru 'Moshi mo Inochi ga Egaketara'.", R.drawable.yoasobi2, "2023"));
+        productList.add(new Product("THE BOOK 3", "Yoasobi", "The Book 3 adalah EP ketiga dalam bahasa Jepang (keenam secara keseluruhan) oleh duo Jepang Yoasobi. Album ini dirilis pada tanggal 4 Oktober 2023, melalui Sony Music Entertainment Japan, satu tahun sepuluh bulan setelah EP kedua mereka, The Book 2 (2021). Melanjutkan konsep 'reading CD' seperti album-album sebelumnya, EP ini mencakup genre electropop dan synth-pop, terdiri dari sepuluh lagu yang semuanya ditulis dan diproduksi oleh salah satu anggota duo tersebut, Ayase.", R.drawable.yoasobi3, "2024"));
+        // Set the adapter
+        productAdapter = new ProductAdapter2(this, productList);
+        recyclerView.setAdapter(productAdapter);
 
         // Initialize views
         sidebar = findViewById(R.id.sidebar);
@@ -118,13 +141,13 @@ public class HomeActivity extends AppCompatActivity {
     private void setupSidebarNavigation() {
         findViewById(R.id.all_items).setOnClickListener(v -> {
             // Navigate to ItemDetailActivity
-            Intent intent = new Intent(HomeActivity.this, ItemDetailActivity.class);
+            Intent intent = new Intent(HomeActivity.this, ProductListActivity.class);
             startActivity(intent);
         });
 
         findViewById(R.id.about_us).setOnClickListener(v -> {
             // Navigate to AboutUsActivity
-            Intent intent = new Intent(HomeActivity.this, AboutUsFragment.class);
+            Intent intent = new Intent(HomeActivity.this, TabLayoutActivity.class);
             startActivity(intent);
         });
 
@@ -143,4 +166,9 @@ public class HomeActivity extends AppCompatActivity {
     public void nextPage(View view) {
         carousel.showNext();
     }
+
+    protected int getLayoutResourceId() {
+        return R.layout.home; // Specific layout for HomeActivity
+    }
+
 }

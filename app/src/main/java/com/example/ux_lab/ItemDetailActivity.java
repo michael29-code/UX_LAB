@@ -16,7 +16,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
     private EditText quantityInput;
     private ImageView albumCover, cartButton, backButton;
-    private TextView albumTitle, artistName, albumDescription;
+    private TextView albumTitle, artistName, albumDescription, albumYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

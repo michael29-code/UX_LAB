@@ -4,13 +4,15 @@ public class Product {
     private final String name;
     private final String artist;
     private final String description;
-    private int imageResId;
+    private final int imageResId;
+    private final String year;
 
-    public Product(String name, String artist, String description, int imageResId) {
+    public Product(String name, String artist, String description, int imageResId, String year) {
         this.name = name;
         this.artist = artist;
         this.description = description;
         this.imageResId = imageResId;
+        this.year = year;
     }
 
     public String getName() {
@@ -28,4 +30,6 @@ public class Product {
     public int getImageResId() {
         return imageResId;
     }
+
+    public String getYear() { return year; }
 }

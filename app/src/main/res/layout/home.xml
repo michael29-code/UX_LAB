@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".HomeActivity"
     android:background="@drawable/login_background">
-
     <!-- Sidebar layout -->
     <LinearLayout
         android:id="@+id/sidebar"
@@ -62,7 +62,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_agenda"
+                android:src="@drawable/baseline_music_note_24"
                 app:tint="#FFFFFF" />
 
             <TextView
@@ -111,7 +111,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@android:drawable/ic_lock_power_off"
+                android:src="@drawable/baseline_logout_24"
                 app:tint="#FF0000" />
 
             <TextView
@@ -124,11 +124,13 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Main content layout -->
+    <!-- Main content layout -->a
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="80dp"
+        android:layout_marginStart="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -141,7 +143,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Header with Hamburger Menu -->
             <RelativeLayout
                 android:layout_width="432dp"
                 android:layout_height="wrap_content"
@@ -160,7 +161,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </RelativeLayout>
 
-            <!-- Welcome Message -->
             <TextView
                 android:id="@+id/welcome_message"
                 android:layout_width="wrap_content"
@@ -237,13 +237,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        />
                     <!-- Album 1 -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="16dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="152dp"
@@ -270,67 +277,7 @@
                             android:textSize="13sp" />
                     </LinearLayout>
 
-                    <!-- Album 2 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="152dp"
-                            android:layout_height="147dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/yoasobi2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="sans-serif-black"
-                            android:text="Album Name 2"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Artist 2"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13sp" />
-                    </LinearLayout>
-
-                    <!-- Album 3 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="152dp"
-                            android:layout_height="147dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/yoasobi3" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="sans-serif-black"
-                            android:text="Album Name 3"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Artist 3"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13sp" />
-                    </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -428,109 +375,17 @@
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
-
-
-            <!-- Favorite Artists -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="sans-serif-black"
-                android:text="Favorite Artist"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp" />
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="16dp"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <!-- Artist 1 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="124dp"
-                            android:layout_height="124dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/artist1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Artist 1"
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <!-- Artist 2 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="124dp"
-                            android:layout_height="124dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/artist2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Artist 2"
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <!-- Artist 3 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="124dp"
-                            android:layout_height="124dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/artist3" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Artist 3"
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </HorizontalScrollView>
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#131313"
-        app:menu="@menu/bottom_navigation_menu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom_navigation"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="#131313"-->
+<!--        app:menu="@menu/bottom_navigation_menu"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

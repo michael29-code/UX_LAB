@@ -25,9 +25,15 @@
             android:exported="true">
         </activity>
 
-        <!-- Add LoginActivity here -->
+        <!-- Add TabActivity here -->
         <activity
             android:name=".TabLayoutActivity"
+            android:exported="true">
+        </activity>
+
+        <!-- Add LoginActivity here -->
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,6 +42,7 @@
         </activity>
 
         <activity android:name=".ProductDetailActivity"></activity>
+        <activity android:name=".ProductListActivity"></activity>
 
 
         <!-- Add HomeActivity here -->
@@ -43,19 +50,6 @@
             android:name=".ItemDetailActivity"
             android:exported="true">
         </activity>
-
-        <activity
-            android:name=".AboutUsActivity"
-            android:exported="true">
-        </activity>
-
-        <!-- Add contact us here -->
-        <activity
-            android:name=".ContactUsActivity"
-            android:exported="true">
-        </activity>
-        <!-- Add about us here -->
-
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.ux_lab;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,10 +11,12 @@ import com.google.android.material.tabs.TabLayout;
 
 public class TabLayoutActivity extends AppCompatActivity {
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout);
+        getLayoutInflater().inflate(R.layout.tablayout, findViewById(R.id.content_frame));
 
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         ViewPager viewPager = findViewById(R.id.viewPager);
