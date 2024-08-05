@@ -1,12 +1,15 @@
 package com.example.ux_lab;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -15,8 +18,12 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter2 productAdapter;
@@ -125,9 +132,6 @@ public class HomeActivity extends AppCompatActivity {
         carousel.setInAnimation(this, R.anim.slide_out_left);
         carousel.setOutAnimation(this, R.anim.slide_in_right);
 
-
-        // Setup sidebar navigation
-        setupSidebarNavigation();
     }
 
     private void toggleSidebar() {
@@ -170,5 +174,6 @@ public class HomeActivity extends AppCompatActivity {
     protected int getLayoutResourceId() {
         return R.layout.home; // Specific layout for HomeActivity
     }
+
 
 }
