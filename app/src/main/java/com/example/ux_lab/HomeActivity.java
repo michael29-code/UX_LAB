@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter2 productAdapter;
     private List<Product> productList;
-    private LinearLayout sidebar;
+    private FrameLayout sidebar;
     private ImageView closeBtn, hamburgerMenu, imageSong;
     private Handler handler = new Handler();
     private Runnable runnable;
@@ -47,8 +48,6 @@ public class HomeActivity extends AppCompatActivity {
         // Initialize the RecyclerView
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-
 
         // Initialize product list
         productList = new ArrayList<>();
@@ -143,19 +142,19 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupSidebarNavigation() {
-        findViewById(R.id.all_items).setOnClickListener(v -> {
+        findViewById(R.id.navigation_all_items).setOnClickListener(v -> {
             // Navigate to ItemDetailActivity
             Intent intent = new Intent(HomeActivity.this, ProductListActivity.class);
             startActivity(intent);
         });
 
-        findViewById(R.id.about_us).setOnClickListener(v -> {
+        findViewById(R.id.navigation_about_us).setOnClickListener(v -> {
             // Navigate to AboutUsActivity
             Intent intent = new Intent(HomeActivity.this, TabLayoutActivity.class);
             startActivity(intent);
         });
 
-        findViewById(R.id.logout).setOnClickListener(v -> {
+        findViewById(R.id.nav_logout).setOnClickListener(v -> {
             // Navigate to LoginActivity
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
@@ -174,6 +173,4 @@ public class HomeActivity extends AppCompatActivity {
     protected int getLayoutResourceId() {
         return R.layout.home; // Specific layout for HomeActivity
     }
-
-
 }
