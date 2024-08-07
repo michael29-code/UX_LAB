@@ -42,7 +42,7 @@ public class ItemPageActivity extends AppCompatActivity {
     }
 
     private void openAlbumDetail(String albumName, String artistName, int imageResId, String description) {
-        Intent intent = new Intent(ItemPageActivity.this, ItemDetailActivity.class);
+        Intent intent = new Intent(ItemPageActivity.this, ProductDetailActivity.class);
         intent.putExtra("ALBUM_NAME", albumName);
         intent.putExtra("ARTIST_NAME", artistName);
         intent.putExtra("ALBUM_IMAGE", imageResId);

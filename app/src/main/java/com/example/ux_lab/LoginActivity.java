@@ -49,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,11 +66,11 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String username = editTextUsername.getText().toString();
-                            // Redirect to Home module (assume you have a HomeActivity)
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                            intent.putExtra("USERNAME", username); // Pass the username
-                            startActivity(intent);
-                            finish(); // Close the login activity
+                            // Redirect to HomeActivity
+                            Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                            homeIntent.putExtra("USERNAME", username); // Pass the username
+                            startActivity(homeIntent);
+
                         }
                     });
                     dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {

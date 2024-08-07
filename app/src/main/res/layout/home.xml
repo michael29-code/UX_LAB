@@ -28,7 +28,7 @@
             <RelativeLayout
                 android:layout_width="432dp"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
+                android:background="#131313"
                 android:outlineAmbientShadowColor="#000000"
                 android:padding="10dp">
 
@@ -164,7 +164,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#000000"
+                android:background="#131313"
                 android:padding="16dp">
 
                 <!-- New Release Label -->

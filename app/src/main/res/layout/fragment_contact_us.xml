@@ -13,15 +13,16 @@
         android:orientation="vertical">
 
         <!-- Page Title and Description -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contact our team to\nfind out more"
-            android:textSize="32sp"
-            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="center"
+            android:text="Contact us"
             android:textColor="#ffffff"
-            android:gravity="start"
-            android:layout_marginBottom="8dp" />
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -36,15 +37,14 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="10dp">
 
             <ImageView
-                android:layout_width="220dp"
-                android:layout_height="166dp"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
                 android:scaleType="centerInside"
-                android:src="@drawable/about_us" />
+                android:src="@drawable/contact_us" />
         </FrameLayout>
 
         <!-- Office Information -->
