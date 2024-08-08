@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -16,10 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private ProductAdapter2 productAdapter;
     private List<Product> productList;
@@ -38,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+        setupSidebarNavigation();
 
         // Initialize the RecyclerView
         recyclerView = findViewById(R.id.recycler_view);
@@ -101,8 +105,30 @@ public class HomeActivity extends AppCompatActivity {
         carousel.setInAnimation(this, R.anim.slide_out_left);
         carousel.setOutAnimation(this, R.anim.slide_in_right);
 
-        // Setup sidebar navigation
-        setupSidebarNavigation();
+        // Initialize and assign variable
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int itemId = item.getItemId(); /* obtain the selected item ID from your source */
+                if (itemId == R.id.navigation_home) {
+                    startActivity(new Intent(HomeActivity.this, HomeActivity.class));
+                } else if (itemId == R.id.navigation_all_items) {
+                    startActivity(new Intent(HomeActivity.this, ItemPageActivity.class));
+                } else if (itemId == R.id.navigation_about_us) {
+                    startActivity(new Intent(HomeActivity.this, TabLayoutActivity.class));
+                } else {
+                    startActivity(new Intent(HomeActivity.this, HomeActivity.class));
+                }
+                return false;
+            }
+        });
     }
 
     private void toggleSidebar() {
@@ -117,9 +143,10 @@ public class HomeActivity extends AppCompatActivity {
         String username = getIntent().getStringExtra("USERNAME");
 
         findViewById(R.id.navigation_all_items).setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, ProductListActivity.class);
+            Intent intent = new Intent(HomeActivity.this, ItemPageActivity.class);
             intent.putExtra("USERNAME", username);
             startActivity(intent);
+
         });
 
         findViewById(R.id.navigation_about_us).setOnClickListener(v -> {
