@@ -62,6 +62,31 @@ public class ItemPageActivity extends AppCompatActivity {
                 openAlbumDetail("Album Name 3", "Artist 3", R.drawable.yoasobi3, "Album description 3");
             }
         });
+
+        // Initialize and assign variable
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.navigation_all_items);
+
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int itemId = item.getItemId(); /* obtain the selected item ID from your source */
+                if (itemId == R.id.navigation_home) {
+                    startActivity(new Intent(ItemPageActivity.this, HomeActivity.class));
+                } else if (itemId == R.id.navigation_all_items) {
+                    startActivity(new Intent(ItemPageActivity.this, ItemPageActivity.class));
+                } else if (itemId == R.id.navigation_about_us) {
+                    startActivity(new Intent(ItemPageActivity.this, TabLayoutActivity.class));
+                } else {
+                    startActivity(new Intent(ItemPageActivity.this, HomeActivity.class));
+                }
+                return false;
+            }
+        });
     }
     private void toggleSidebar() {
         if (sidebar.getVisibility() == View.GONE) {
