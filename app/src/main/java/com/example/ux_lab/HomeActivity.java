@@ -118,13 +118,13 @@ public class HomeActivity extends AppCompatActivity{
 
                 int itemId = item.getItemId(); /* obtain the selected item ID from your source */
                 if (itemId == R.id.navigation_home) {
-                    startActivity(new Intent(HomeActivity.this, HomeActivity.class));
+                    startActivity(new Intent(HomeActivity.this, HomeActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_all_items) {
-                    startActivity(new Intent(HomeActivity.this, ItemPageActivity.class));
+                    startActivity(new Intent(HomeActivity.this, ItemPageActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_about_us) {
-                    startActivity(new Intent(HomeActivity.this, TabLayoutActivity.class));
+                    startActivity(new Intent(HomeActivity.this, TabLayoutActivity.class).putExtra("USERNAME", username));
                 } else {
-                    startActivity(new Intent(HomeActivity.this, HomeActivity.class));
+                    startActivity(new Intent(HomeActivity.this, HomeActivity.class).putExtra("USERNAME", username));
                 }
                 return false;
             }

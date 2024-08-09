@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,28 +23,33 @@ public class TabLayoutActivity extends AppCompatActivity {
 
     private ImageView closeBtn, hamburgerMenu;
     private FrameLayout sidebar;
-
+    private TextView sidebarUsernameTextView; // TextView for displaying the username in the sidebar
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout);
+
         sidebar = findViewById(R.id.sidebar);
         closeBtn = findViewById(R.id.closeBtn);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
         closeBtn.setOnClickListener(v -> toggleSidebar());
         hamburgerMenu.setOnClickListener(v -> toggleSidebar());
-        setupSidebarNavigation();
         getLayoutInflater().inflate(R.layout.tablayout, findViewById(R.id.content_frame));
-
+        sidebarUsernameTextView = findViewById(R.id.username_textview_all_items);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         ViewPager viewPager = findViewById(R.id.viewPager);
+        setupSidebarNavigation();
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
         tabLayout.setupWithViewPager(viewPager);
-
+        // Retrieve the username from the Intent
+        String username = getIntent().getStringExtra("USERNAME");
+        if (username != null) {
+            sidebarUsernameTextView.setText(username);
+        }
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
@@ -57,13 +63,13 @@ public class TabLayoutActivity extends AppCompatActivity {
 
                 int itemId = item.getItemId(); /* obtain the selected item ID from your source */
                 if (itemId == R.id.navigation_home) {
-                    startActivity(new Intent(TabLayoutActivity.this, HomeActivity.class));
+                    startActivity(new Intent(TabLayoutActivity.this, HomeActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_all_items) {
-                    startActivity(new Intent(TabLayoutActivity.this, ItemPageActivity.class));
+                    startActivity(new Intent(TabLayoutActivity.this, ItemPageActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_about_us) {
-                    startActivity(new Intent(TabLayoutActivity.this, TabLayoutActivity.class));
+                    startActivity(new Intent(TabLayoutActivity.this, TabLayoutActivity.class).putExtra("USERNAME", username));
                 } else {
-                    startActivity(new Intent(TabLayoutActivity.this, HomeActivity.class));
+                    startActivity(new Intent(TabLayoutActivity.this, HomeActivity.class).putExtra("USERNAME", username));
                 }
                 return false;
             }

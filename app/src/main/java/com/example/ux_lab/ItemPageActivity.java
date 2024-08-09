@@ -17,7 +17,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class ItemPageActivity extends AppCompatActivity {
     private ImageView closeBtn, hamburgerMenu, imageSong;
     private FrameLayout sidebar;
-
+    private TextView welcomeTextView; // TextView for displaying the welcome message
+    private TextView sidebarUsernameTextView; // TextView for displaying the username in the sidebar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,8 @@ public class ItemPageActivity extends AppCompatActivity {
         closeBtn = findViewById(R.id.closeBtn);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
 //        imageSong = findViewById(R.id.songsId);
+        welcomeTextView = findViewById(R.id.welcomeMessage);
+        sidebarUsernameTextView = findViewById(R.id.username_textview_all_items);
 
         // Example of setting up click listeners for album items
         LinearLayout album1 = findViewById(R.id.album1);
@@ -62,7 +65,12 @@ public class ItemPageActivity extends AppCompatActivity {
                 openAlbumDetail("Album Name 3", "Artist 3", R.drawable.yoasobi3, "Album description 3");
             }
         });
-
+        // Retrieve the username from the Intent
+        String username = getIntent().getStringExtra("USERNAME");
+        if (username != null) {
+            welcomeTextView.setText("Welcome, " + username);
+            sidebarUsernameTextView.setText(username);
+        }
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
@@ -76,13 +84,13 @@ public class ItemPageActivity extends AppCompatActivity {
 
                 int itemId = item.getItemId(); /* obtain the selected item ID from your source */
                 if (itemId == R.id.navigation_home) {
-                    startActivity(new Intent(ItemPageActivity.this, HomeActivity.class));
+                    startActivity(new Intent(ItemPageActivity.this, HomeActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_all_items) {
-                    startActivity(new Intent(ItemPageActivity.this, ItemPageActivity.class));
+                    startActivity(new Intent(ItemPageActivity.this, ItemPageActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_about_us) {
-                    startActivity(new Intent(ItemPageActivity.this, TabLayoutActivity.class));
+                    startActivity(new Intent(ItemPageActivity.this, TabLayoutActivity.class).putExtra("USERNAME", username));
                 } else {
-                    startActivity(new Intent(ItemPageActivity.this, HomeActivity.class));
+                    startActivity(new Intent(ItemPageActivity.this, HomeActivity.class).putExtra("USERNAME", username));
                 }
                 return false;
             }
@@ -102,7 +110,6 @@ public class ItemPageActivity extends AppCompatActivity {
             Intent intent = new Intent(ItemPageActivity.this, HomeActivity.class);
             intent.putExtra("USERNAME", username);
             startActivity(intent);
-            finish();
 
         });
 
@@ -110,7 +117,6 @@ public class ItemPageActivity extends AppCompatActivity {
             Intent intent = new Intent(ItemPageActivity.this, TabLayoutActivity.class);
             intent.putExtra("USERNAME", username);
             startActivity(intent);
-            finish();
         });
 
         findViewById(R.id.nav_logout).setOnClickListener(v -> {

@@ -146,7 +146,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true" />
     </RelativeLayout>
-    <!--    side bar-->
+    <!-- side bar-->
 
     <!-- Welcome Message -->
     <TextView
@@ -391,4 +391,5 @@
         android:background="#131313"
         app:menu="@menu/bottom_navigation_menu"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
