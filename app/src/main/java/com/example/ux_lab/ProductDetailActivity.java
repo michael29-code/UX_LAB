@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
-    private EditText etQuantity;
+    private EditText setQuantity;
     private TextView tvSuccessMessage;
 
     @Override
@@ -27,7 +27,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         TextView tvArtist = findViewById(R.id.tvProductArtist);
         TextView tvDetailDescription = findViewById(R.id.tvDetailDescription);
         TextView tvDetailYear = findViewById(R.id.tvDetailYear);
-        etQuantity = findViewById(R.id.etQuantity);
+        setQuantity = findViewById(R.id.setQuantity);
         tvSuccessMessage = findViewById(R.id.tvSuccessMessage);
         ImageButton cartButton = findViewById(R.id.cart_button);
         ImageButton backButton = findViewById(R.id.back_button);
@@ -52,19 +52,25 @@ public class ProductDetailActivity extends AppCompatActivity {
             }
         });
 
+        String username = getIntent().getStringExtra("USERNAME");
+
         // Set OnClickListener for back button
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Redirect to ProductListActivity
-                Intent backIntent = new Intent(ProductDetailActivity.this, ProductListActivity.class);
-                startActivity(backIntent);
+//                Intent backIntent = new Intent(ProductDetailActivity.this, ProductListActivity.class).putExtra("USERNAME", username);
+//                startActivity(backIntent);
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("USERNAME", username); // Ganti "key" dan "value" sesuai data yang ingin dikirim
+                setResult(RESULT_OK, resultIntent);
+                finish();
             }
         });
     }
 
     private void validateQuantityInput() {
-        String quantityStr = etQuantity.getText().toString();
+        String quantityStr = setQuantity.getText().toString();
         if (quantityStr.isEmpty()) {
             showErrorDialog("A number should be inputted");
         } else {

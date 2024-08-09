@@ -240,46 +240,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
+                    <!-- Album 1 -->
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:orientation="horizontal"
-                        />
-                    <!-- Album 1 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <ImageView
-                            android:layout_width="152dp"
-                            android:layout_height="147dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/yoasobi1"
-                            android:id="@+id/songsId"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="sans-serif-black"
-                            android:text="Album Name 1"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Artist 1"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13sp" />
-                    </LinearLayout>
-
+                        android:orientation="horizontal" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -314,8 +282,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="149dp"
-                        >
+                        android:layout_height="149dp">
                         <ImageView
                             android:id="@+id/album_image"
                             android:layout_width="142dp"

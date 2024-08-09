@@ -34,6 +34,7 @@ public class ProductAdapter2 extends RecyclerView.Adapter<ProductAdapter2.Produc
         holder.nameTextView.setText(product.getName());
         holder.artistTextView.setText(product.getArtist());
         holder.imageView.setImageResource(product.getImageResId());
+        holder.descriptionTextView.setText(product.getDescription());
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ProductDetailActivity.class);
@@ -52,7 +53,7 @@ public class ProductAdapter2 extends RecyclerView.Adapter<ProductAdapter2.Produc
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView, artistTextView, descriptionTextView, yearTextView;
+        TextView nameTextView, artistTextView, descriptionTextView;
         ImageView imageView;
 
         public ProductViewHolder(@NonNull View itemView) {
@@ -60,6 +61,7 @@ public class ProductAdapter2 extends RecyclerView.Adapter<ProductAdapter2.Produc
             nameTextView = itemView.findViewById(R.id.product_name);
             artistTextView = itemView.findViewById(R.id.product_artist);
             imageView = itemView.findViewById(R.id.product_image);
+            descriptionTextView = itemView.findViewById(R.id.product_description);
         }
     }
 }

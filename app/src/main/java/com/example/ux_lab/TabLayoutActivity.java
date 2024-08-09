@@ -65,7 +65,7 @@ public class TabLayoutActivity extends AppCompatActivity {
                 if (itemId == R.id.navigation_home) {
                     startActivity(new Intent(TabLayoutActivity.this, HomeActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_all_items) {
-                    startActivity(new Intent(TabLayoutActivity.this, ItemPageActivity.class).putExtra("USERNAME", username));
+                    startActivity(new Intent(TabLayoutActivity.this, ProductListActivity.class).putExtra("USERNAME", username));
                 } else if (itemId == R.id.navigation_about_us) {
                     startActivity(new Intent(TabLayoutActivity.this, TabLayoutActivity.class).putExtra("USERNAME", username));
                 } else {
@@ -95,7 +95,7 @@ public class TabLayoutActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.navigation_all_items).setOnClickListener(v -> {
-            Intent intent = new Intent(TabLayoutActivity.this, ItemPageActivity.class);
+            Intent intent = new Intent(TabLayoutActivity.this, ProductListActivity.class);
             intent.putExtra("USERNAME", username);
             startActivity(intent);
             finish();
