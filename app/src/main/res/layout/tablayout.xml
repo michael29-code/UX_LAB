@@ -88,7 +88,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@android:drawable/ic_menu_info_details"
+                    android:src="@drawable/baseline_music_note_24"
                     app:tint="#FFFFFF" />
 
                 <TextView
@@ -115,6 +115,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    app:tint="#FF0000"
                     android:src="@drawable/baseline_logout_24" />
 
                 <TextView
