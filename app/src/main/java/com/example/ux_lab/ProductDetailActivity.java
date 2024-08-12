@@ -72,11 +72,11 @@ public class ProductDetailActivity extends AppCompatActivity {
     private void validateQuantityInput() {
         String quantityStr = setQuantity.getText().toString();
         if (quantityStr.isEmpty()) {
-            showErrorDialog("A number should be inputted");
+            showErrorDialog("Please fill the input field with number");
         } else {
             int quantity = Integer.parseInt(quantityStr);
             if (quantity <= 0) {
-                showErrorDialog("Please input a number greater than 0");
+                showErrorDialog("Input must be greater than zero");
             } else {
                 tvSuccessMessage.setVisibility(View.VISIBLE);
             }
